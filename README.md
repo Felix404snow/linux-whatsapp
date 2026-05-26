@@ -2,7 +2,7 @@
 
 WhatsApp para Linux com interface estilo Discord, feito com Electron + React + whatsapp-web.js.
 
-![Interface](assets/icon.png)
+![Interface](assets/screenshot.png)
 
 ## ✨ Funcionalidades
 
