@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=WhatsApp Linux
 Comment=WhatsApp para Linux com interface estilo Discord
-Exec="{APPIMAGE_PATH}" %U
-Icon=whatsapp-linux
+Exec=bash -c 'cd "$(dirname "%k")" && ./start.sh'
+Icon=assets/icon.png
 Type=Application
 Categories=Network;Chat;InstantMessaging;
 Terminal=false
