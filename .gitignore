@@ -36,3 +36,4 @@ yarn-error.log*
 # Auth do WhatsApp (gerado localmente)
 *.whatsapp-linux-auth-wwebjs/
 package-lock.json
+PUSH-TO-GITHUB.md
