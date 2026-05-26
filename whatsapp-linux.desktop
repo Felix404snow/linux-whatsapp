@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WhatsApp Linux
+Comment=WhatsApp para Linux com interface estilo Discord
+Exec="{APPIMAGE_PATH}" %U
+Icon=whatsapp-linux
+Type=Application
+Categories=Network;Chat;InstantMessaging;
+Terminal=false
+StartupNotify=true
+StartupWMClass=whatsapp-linux
+MimeType=x-scheme-handler/whatsapp;

@@ -1,0 +1,25 @@
+const { contextBridge, ipcRenderer } = require('electron')
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  onQRCode: (callback) => ipcRenderer.on('qr-code', (_, data) => callback(data)),
+  onConnectionUpdate: (callback) => ipcRenderer.on('connection-update', (_, data) => callback(data)),
+  onChatsUpdate: (callback) => ipcRenderer.on('chats-update', (_, data) => callback(data)),
+  onMessagesUpdate: (callback) => ipcRenderer.on('messages-update', (_, data) => callback(data)),
+  onNeedsResync: (callback) => ipcRenderer.on('needs-resync', (_, data) => callback(data)),
+  onUserProfile: (callback) => ipcRenderer.on('user-profile', (_, data) => callback(data)),
+  onSelectChat: (callback) => ipcRenderer.on('select-chat', (_, data) => callback(data)),
+  sendMessage: (to, text, quotedMsgId) => ipcRenderer.invoke('send-message', { to, text, quotedMsgId }),
+  sendFile: (to, file) => ipcRenderer.invoke('send-file', { to, file }),
+  sendAudio: (to, audioBase64, mimetype) => ipcRenderer.invoke('send-audio', { to, audioBase64, mimetype }),
+  loadChat: (jid) => ipcRenderer.invoke('load-chat', jid),
+  getProfilePicture: (jid) => ipcRenderer.invoke('get-profile-picture', jid),
+  logout: () => ipcRenderer.invoke('logout'),
+  restartApp: () => ipcRenderer.invoke('restart-app'),
+  startNewChat: (phone) => ipcRenderer.invoke('start-new-chat', phone),
+  selectFile: () => ipcRenderer.invoke('select-file'),
+  getClipboardType: () => ipcRenderer.invoke('get-clipboard-type'),
+  getClipboardImage: () => ipcRenderer.invoke('get-clipboard-image'),
+  openExternal: (url) => ipcRenderer.invoke('open-external', url),
+  saveFile: (defaultName, dataUrl) => ipcRenderer.invoke('save-file', { defaultName, dataUrl }),
+  markChatRead: (jid) => ipcRenderer.invoke('mark-chat-read', jid),
+})
